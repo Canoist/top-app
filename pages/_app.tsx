@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 <title>My new title</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Component {...pageProps} />;
+            <Component {...pageProps} /> 
         </>
     );
 }

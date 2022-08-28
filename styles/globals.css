@@ -2,19 +2,10 @@ html,
 body {
     margin: 0;
     padding: 0;
+    color: var(--black);
+    background-color: #f5f6f8;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Oxygen,
-        Ubuntu,
-        Cantarell,
-        "Fira Sans",
-        "Droid Sans",
-        "Helvetica Neue",
-        sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 a {
@@ -27,13 +18,14 @@ a {
     box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
-
-    body {
-        color: white;
-        background: black;
-    }
+:root {
+    --black: #3b434e;
+    --gray-light: #ebebeb;
+    --white: white;
+    --primary: #7653fc;
+    --primary-hover: #481bfc;
+    --red: #fc836d;
+    --green: #1dc37e;
+    --green-light: #c8f8e4;
+    --font-family: "Noto Sans", sans-serif;
 }
