@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import styles from "./Button.module.css";
 import cn from "classnames";
+import ArrowIcon from "./arrow.svg";
 
 interface IButton
     extends DetailedHTMLProps<
@@ -9,11 +10,13 @@ interface IButton
     > {
     children: React.ReactNode;
     appearance: "primary" | "ghost";
+    arrow?: "right" | "down" | "none";
 }
 export const Button: React.FC<IButton> = ({
     children,
     appearance,
     className,
+    arrow = "none",
     ...props
 }) => {
     return (
@@ -24,6 +27,14 @@ export const Button: React.FC<IButton> = ({
             })}
             {...props}>
             {children}
+            {arrow != "none" && (
+                <span
+                    className={cn(styles.arrow, {
+                        [styles.down]: arrow == "down",
+                    })}>
+                    <ArrowIcon />
+                </span>
+            )}
         </button>
     );
 };
