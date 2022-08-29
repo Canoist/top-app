@@ -1,4 +1,4 @@
-import { Button, Htag, Paragraph } from "../components";
+import { Button, Htag, Paragraph, Tag } from "../components";
 
 export default function Home(): JSX.Element {
     return (
@@ -34,6 +34,25 @@ export default function Home(): JSX.Element {
                 разработчиками и маркетологами. Выпускники факультета могут
                 успешно конкурировать с веб-дизайнерами уровня middle.
             </Paragraph>
+            <Tag size="s" color="ghost">
+                Ghost
+            </Tag>
+            <Tag size="s" color="red">
+                111
+            </Tag>
+            <Tag size="s" color="primary">
+                22
+            </Tag>
+            <Tag size="s" color="grey">
+                333
+            </Tag>
+            <Tag size="s" color="green">
+                444444
+            </Tag>
+            <Tag color="green">444444</Tag>
+            <Tag size="m" color="green" href="#">
+                444444
+            </Tag>
         </div>
     );
 }
