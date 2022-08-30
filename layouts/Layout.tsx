@@ -9,7 +9,7 @@ interface ILayout {
     children: React.ReactNode;
 }
 
-const Layout: React.FC<ILayout> = ({ children }) => {
+export const Layout: React.FC<ILayout> = ({ children }) => {
     return (
         <>
             <Header />
@@ -22,4 +22,16 @@ const Layout: React.FC<ILayout> = ({ children }) => {
     );
 };
 
-export default Layout;
+const WithLayout = <T extends Record<string, unknown>>(
+    Component: React.FC<T>
+) => {
+    return function componentWithLayout(props: T): JSX.Element {
+        return (
+            <Layout>
+                <Component {...props} />
+            </Layout>
+        );
+    };
+};
+
+export default WithLayout;
