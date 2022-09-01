@@ -11,14 +11,12 @@ interface ILayout {
 
 export const Layout: React.FC<ILayout> = ({ children }) => {
     return (
-        <>
-            <Header />
-            <main>
-                <SideBar />
-                {children}
-            </main>
-            <Footer />
-        </>
+        <div className={styles.wrapper}>
+            <Header className={styles.header} />
+            <SideBar className={styles.sidebar} />
+            <div className={styles.body}>{children}</div>
+            <Footer className={styles.footer} />
+        </div>
     );
 };
 
