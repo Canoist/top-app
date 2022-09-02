@@ -1,8 +1,11 @@
+import { GetStaticProps } from "next";
 import { useState } from "react";
 import { Button, Htag, Paragraph, Rating, Tag } from "../components";
+import MenuItem from "../interfaces/PageItem";
 import WithLayout from "../layouts/Layout";
+import topPageService from "../services/topPageService";
 
-function Home(): JSX.Element {
+function Home({ menu }: HomeProps): JSX.Element {
     const [rating, setRating] = useState<number>(3);
 
     return (
@@ -17,6 +20,13 @@ function Home(): JSX.Element {
             <Button appearance="primary" arrow="down">
                 ZZZZZ
             </Button>
+            <ul>
+                {menu.map((item) => (
+                    <li key={item._id.secondCategory}>
+                        {item._id.secondCategory}
+                    </li>
+                ))}
+            </ul>
             <Paragraph variant="s">
                 Студенты освоят не только hard skills, необходимые для работы
                 веб-дизайнером, но и soft skills — навыки, которые позволят
@@ -64,3 +74,20 @@ function Home(): JSX.Element {
 }
 
 export default WithLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+    const firstCategory = 0;
+
+    const menu = await topPageService.find(firstCategory);
+    return {
+        props: {
+            menu,
+            firstCategory,
+        },
+    };
+};
+
+interface HomeProps extends Record<string, unknown> {
+    menu: MenuItem[];
+    firstCategory: number;
+}
