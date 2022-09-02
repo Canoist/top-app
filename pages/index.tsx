@@ -2,10 +2,10 @@ import { GetStaticProps } from "next";
 import { useState } from "react";
 import { Button, Htag, Paragraph, Rating, Tag } from "../components";
 import IMenuItem from "../interfaces/IMenuItem";
-import WithLayout from "../layouts/Layout";
+import WithLayout from "../layouts/HOC/componentWithLayout";
 import topPageService from "../services/topPageService";
 
-function Home({ menu }: HomeProps): JSX.Element {
+function Home(): JSX.Element {
     const [rating, setRating] = useState<number>(3);
 
     return (
@@ -20,34 +20,9 @@ function Home({ menu }: HomeProps): JSX.Element {
             <Button appearance="primary" arrow="down">
                 ZZZZZ
             </Button>
-            <ul>
-                {menu.map((item) => (
-                    <li key={item._id.secondCategory}>
-                        {item._id.secondCategory}
-                    </li>
-                ))}
-            </ul>
-            <Paragraph variant="s">
-                Студенты освоят не только hard skills, необходимые для работы
-                веб-дизайнером, но и soft skills — навыки, которые позволят
-                эффективно взаимодействовать в команде с менеджерами,
-                разработчиками и маркетологами. Выпускники факультета могут
-                успешно конкурировать с веб-дизайнерами уровня middle.
-            </Paragraph>
-            <Paragraph variant="m">
-                Студенты освоят не только hard skills, необходимые для работы
-                веб-дизайнером, но и soft skills — навыки, которые позволят
-                эффективно взаимодействовать в команде с менеджерами,
-                разработчиками и маркетологами. Выпускники факультета могут
-                успешно конкурировать с веб-дизайнерами уровня middle.
-            </Paragraph>
-            <Paragraph variant="l">
-                Студенты освоят не только hard skills, необходимые для работы
-                веб-дизайнером, но и soft skills — навыки, которые позволят
-                эффективно взаимодействовать в команде с менеджерами,
-                разработчиками и маркетологами. Выпускники факультета могут
-                успешно конкурировать с веб-дизайнерами уровня middle.
-            </Paragraph>
+            <Paragraph variant="s">small</Paragraph>
+            <Paragraph variant="m">medium</Paragraph>
+            <Paragraph variant="l">large</Paragraph>
             <Tag size="s" color="ghost">
                 Ghost
             </Tag>

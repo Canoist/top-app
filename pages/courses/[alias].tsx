@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import MenuItem from "../../interfaces/IMenuItem";
 import { IProduct } from "../../interfaces/IProduct";
 import ITopPage from "../../interfaces/ITopPage";
-import WithLayout from "../../layouts/Layout";
+import WithLayout from "../../layouts/HOC/componentWithLayout";
 import productService from "../../services/productService";
 import topPageService from "../../services/topPageService";
 
