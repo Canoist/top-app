@@ -1,3 +1,4 @@
+import { IProduct } from "../interfaces/IProduct";
 import httpService from "./httpService";
 
 const productEndPoint = "product/";
@@ -9,7 +10,7 @@ interface IPayload {
 
 const productService = {
     find: async (payload: IPayload) => {
-        const { data } = await httpService.post(
+        const { data } = await httpService.post<IProduct[]>(
             productEndPoint + "find/",
             payload
         );

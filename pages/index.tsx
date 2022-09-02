@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
 import { Button, Htag, Paragraph, Rating, Tag } from "../components";
-import MenuItem from "../interfaces/PageItem";
+import IMenuItem from "../interfaces/IMenuItem";
 import WithLayout from "../layouts/Layout";
 import topPageService from "../services/topPageService";
 
@@ -88,6 +88,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 };
 
 interface HomeProps extends Record<string, unknown> {
-    menu: MenuItem[];
+    menu: IMenuItem[];
     firstCategory: number;
 }
