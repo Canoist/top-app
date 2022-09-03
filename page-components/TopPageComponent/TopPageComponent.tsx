@@ -1,5 +1,5 @@
 import React from "react";
-import { HhData, Htag, Tag } from "../../components";
+import { Adventages, HhData, Htag, Tag } from "../../components";
 import { IProduct } from "../../interfaces/IProduct";
 import ITopPage, { TopLevelCategory } from "../../interfaces/ITopPage";
 import styles from "./TopPageComponent.module.css";
@@ -35,9 +35,21 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
                 <Tag color="red">hh.ru</Tag>
             </div>
-            {firstCategory == TopLevelCategory.Courses && (
+            {firstCategory == TopLevelCategory.Courses && page.hh && (
                 <HhData {...page.hh} />
             )}
+            {page.advantages && page.advantages.length > 0 && (
+                <>
+                    <Htag tag="h2">Преимущества</Htag>
+                    <Adventages advantages={page.advantages} />
+                </>
+            )}
+            <Htag tag="h2">Получаемые навыки</Htag>
+            {page.tags.map((tag) => (
+                <Tag key={tag} color="primary">
+                    {tag}
+                </Tag>
+            ))}
         </div>
     );
 };

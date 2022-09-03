@@ -5,9 +5,7 @@ import { Card } from "../Card/Card";
 import styles from "./HhData.module.css";
 import RateIcon from "./rate.svg";
 
-interface IHhData extends DataFromHH {}
-
-export const HhData: React.FC<IHhData> = ({
+export const HhData: React.FC<DataFromHH> = ({
     count,
     juniorSalary,
     middleSalary,
