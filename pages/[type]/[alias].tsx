@@ -5,24 +5,21 @@ import MenuItem from "../../interfaces/IMenuItem";
 import { IProduct } from "../../interfaces/IProduct";
 import ITopPage, { TopLevelCategory } from "../../interfaces/ITopPage";
 import WithLayout from "../../layouts/HOC/componentWithLayout";
+import TopPageComponents from "../../page-components/TopPageComponent/TopPageComponent";
 import productService from "../../services/productService";
 import topPageService from "../../services/topPageService";
 
-const Course: React.FC<CourseProps> = ({ products }) => {
+const TopPage: React.FC<TopPageProps> = ({ firstCategory, page, products }) => {
     return (
-        <>
-            {products && (
-                <ul>
-                    {products.map((item) => (
-                        <li key={item._id}>{item.title}</li>
-                    ))}
-                </ul>
-            )}
-        </>
+        <TopPageComponents
+            firstCategory={firstCategory}
+            page={page}
+            products={products}
+        />
     );
 };
 
-export default WithLayout(Course);
+export default WithLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let paths: string[] = [];
@@ -40,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({
     params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
     if (!params || !params.alias) {
@@ -88,7 +85,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({
     }
 };
 
-interface CourseProps extends Record<string, unknown> {
+interface TopPageProps extends Record<string, unknown> {
     menu: MenuItem[];
     firstCategory: TopLevelCategory;
     page: ITopPage;

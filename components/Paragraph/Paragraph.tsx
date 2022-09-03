@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./Paragraph.module.css";
 
@@ -17,7 +18,13 @@ export const Paragraph: React.FC<IParagraph> = ({
     ...props
 }) => {
     return (
-        <p className={`${styles[variant]} ${className}`} {...props}>
+        <p
+            className={cn(className, {
+                [styles.s]: variant == "s",
+                [styles.m]: variant == "m",
+                [styles.l]: variant == "l",
+            })}
+            {...props}>
             {children}
         </p>
     );

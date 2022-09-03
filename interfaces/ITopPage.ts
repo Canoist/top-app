@@ -11,7 +11,7 @@ export interface TopPageAdvantage {
     _id: string;
 }
 
-export interface HhData {
+export interface DataFromHH {
     count: number;
     juniorSalary: number;
     middleSalary: number;
@@ -58,7 +58,7 @@ export default interface ITopPage {
     createdAt: Date;
     updatedAt: Date;
     __v: number;
-    hh: HhData;
+    hh: DataFromHH;
     qas: string[];
     addresses: string[];
     categoryOn: string;
