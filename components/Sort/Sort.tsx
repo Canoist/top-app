@@ -3,7 +3,7 @@ import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./Sort.module.css";
 import SortIcon from "./sort.svg";
 
-enum SortEnum {
+export enum SortEnum {
     Rating,
     Price,
 }
@@ -23,14 +23,14 @@ export const Sort: React.FC<ISort> = ({
     return (
         <div className={cn(className, styles.sort)} {...props}>
             <span
-                onClick={() => setSort(SortEnum.Price)}
+                onClick={() => setSort(SortEnum.Rating)}
                 className={cn({ [styles.active]: sort == SortEnum.Rating })}>
-                <SortIcon className={styles.sortIcon} /> по&nbsp;рейтингу
+                <SortIcon className={styles.sortIcon} /> по рейтингу
             </span>
             <span
-                onClick={() => setSort(SortEnum.Rating)}
+                onClick={() => setSort(SortEnum.Price)}
                 className={cn({ [styles.active]: sort == SortEnum.Price })}>
-                {<SortIcon className={styles.sortIcon} />} по&nbsp;цене
+                {<SortIcon className={styles.sortIcon} />} по цене
             </span>
         </div>
     );

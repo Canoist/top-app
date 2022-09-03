@@ -1,7 +1,15 @@
-import React from "react";
-import { Adventages, HhData, Htag, Sort, Tag } from "../../components";
+import React, { useReducer } from "react";
+import {
+    Adventages,
+    HhData,
+    Htag,
+    Sort,
+    SortEnum,
+    Tag,
+} from "../../components";
 import { IProduct } from "../../interfaces/IProduct";
 import ITopPage, { TopLevelCategory } from "../../interfaces/ITopPage";
+import { sortReducer } from "./sort.reducer";
 import styles from "./TopPageComponent.module.css";
 
 interface ITopPageComponents {
@@ -14,6 +22,15 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
     products,
     firstCategory,
 }) => {
+    const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(
+        sortReducer,
+        { products, sort: SortEnum.Rating }
+    );
+
+    const handleSort = (sort: SortEnum) => {
+        dispatchSort({ type: sort });
+    };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>
@@ -23,16 +40,11 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
                         {products.length}
                     </Tag>
                 )}
-                <Sort
-                    sort={0}
-                    setSort={() => {
-                        return;
-                    }}
-                />
+                <Sort sort={sort} setSort={handleSort} />
             </div>
             <div>
-                {products &&
-                    products.map((prod) => (
+                {sortedProducts &&
+                    sortedProducts.map((prod) => (
                         <div key={prod._id}>{prod.title}</div>
                     ))}
             </div>
