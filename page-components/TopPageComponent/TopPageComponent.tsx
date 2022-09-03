@@ -1,5 +1,5 @@
 import React from "react";
-import { Adventages, HhData, Htag, Tag } from "../../components";
+import { Adventages, HhData, Htag, Sort, Tag } from "../../components";
 import { IProduct } from "../../interfaces/IProduct";
 import ITopPage, { TopLevelCategory } from "../../interfaces/ITopPage";
 import styles from "./TopPageComponent.module.css";
@@ -23,7 +23,12 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
                         {products.length}
                     </Tag>
                 )}
-                <span>Sort</span>
+                <Sort
+                    sort={0}
+                    setSort={() => {
+                        return;
+                    }}
+                />
             </div>
             <div>
                 {products &&
@@ -45,6 +50,12 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
                 </>
             )}
             <Htag tag="h2">Получаемые навыки</Htag>
+            {page.seoText && (
+                <div
+                    className={styles.seo}
+                    dangerouslySetInnerHTML={{ __html: page.seoText }}
+                />
+            )}
             {page.tags.map((tag) => (
                 <Tag key={tag} color="primary">
                     {tag}
