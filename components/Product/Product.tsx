@@ -1,12 +1,13 @@
 import cn from "classnames";
 import Image from "next/image";
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import { IProduct } from "../../interfaces/IProduct";
 import declOfNum from "../../utils/declOfNum";
 import priceRu from "../../utils/priceRu";
 import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
 import { Rating } from "../Rating/Rating";
+import { Review } from "../Review/Review";
 import { Tag } from "../Tag/Tag";
 import styles from "./Product.module.css";
 
@@ -20,7 +21,7 @@ export const Product: React.FC<IProductProps> = ({
     className,
     ...props
 }) => {
-    console.log(process.env.NEXT_PUBLIC_IMAGE_DOMAIN, product.image);
+    const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 
     return (
         <div className={className} {...props}>
@@ -120,29 +121,29 @@ export const Product: React.FC<IProductProps> = ({
                 {/* <Divider className={cn(styles.hr, styles.hr2)} /> */}
                 <div className={styles.actions}>
                     <Button appearance="primary">Узнать подробнее</Button>
-                    {/* <Button
+                    <Button
                         appearance="ghost"
                         arrow={isReviewOpened ? "down" : "right"}
                         className={styles.reviewButton}
                         onClick={() => setIsReviewOpened(!isReviewOpened)}
                         aria-expanded={isReviewOpened}>
                         Читать отзывы
-                    </Button> */}
+                    </Button>
                 </div>
             </Card>
-            {/* <Card
+            <Card
                 color="blue"
                 className={styles.reviews}
-                ref={reviewRef}
+                // ref={reviewRef}
                 tabIndex={isReviewOpened ? 0 : -1}>
                 {product.reviews.map((r) => (
                     <div key={r._id}>
                         <Review review={r} />
-                        <Divider />
+                        {/* <Divider /> */}
                     </div>
                 ))}
-                <ReviewForm productId={product._id} isOpened={isReviewOpened} />
-            </Card> */}
+                {/* <ReviewForm productId={product._id} isOpened={isReviewOpened} /> */}
+            </Card>
         </div>
     );
 };

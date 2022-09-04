@@ -9,7 +9,7 @@ export interface Blog {
     bigImage: string;
 }
 
-export interface Review {
+export interface IReview {
     _id: string;
     name: string;
     title: string;
@@ -40,7 +40,7 @@ export interface IProduct {
     blog: Blog;
     companyId: string;
     clicks: number;
-    reviews: Review[];
+    reviews: IReview[];
     reviewCount: number;
     reviewAvg?: number;
 }

@@ -259,6 +259,37 @@
     }
 }
 
+@media screen and (max-width: 860px) {
+    .product {
+        grid-template-columns: 70px 30px 1fr;
+        grid-template-areas:
+            "logo . title"
+            "logo . tags"
+            "priceTitle priceTitle price"
+            "creditTitle creditTitle credit"
+            "rating rating rating"
+            "rateTitle rateTitle rateTitle"
+            "hr hr hr"
+            "description description description"
+            "feature feature feature"
+            "advBlock advBlock advBlock"
+            "hr2 hr2 hr2"
+            "actions actions actions";
+    }
+
+    .price {
+        margin-bottom: 10px;
+    }
+
+    .credit {
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        margin-bottom: 10px;
+    }
+}
+
 @media screen and (max-width: 640px) {
     .product {
         grid-template-columns: 70px 30px 1fr;
