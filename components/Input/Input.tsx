@@ -16,8 +16,11 @@ interface IInput
     error?: FieldError;
 }
 
-export const Input: React.FC<IInput> = forwardRef(
-    ({ className, error, ...props }, ref: ForwardedRef<HTMLInputElement>) => {
+export const Input = forwardRef(
+    (
+        { className, error, ...props }: IInput,
+        ref: ForwardedRef<HTMLInputElement>
+    ): JSX.Element => {
         return (
             <div className={cn(className, styles.inputWrapper)}>
                 <input
@@ -36,3 +39,5 @@ export const Input: React.FC<IInput> = forwardRef(
         );
     }
 );
+
+Input.displayName = "Input";

@@ -8,6 +8,7 @@ import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
 import { Rating } from "../Rating/Rating";
 import { Review } from "../Review/Review";
+import ReviewForm from "../ReviewForm/ReviewForm";
 import { Tag } from "../Tag/Tag";
 import styles from "./Product.module.css";
 
@@ -142,7 +143,7 @@ export const Product: React.FC<IProductProps> = ({
                         {/* <Divider /> */}
                     </div>
                 ))}
-                {/* <ReviewForm productId={product._id} isOpened={isReviewOpened} /> */}
+                <ReviewForm productId={product._id} isOpened={isReviewOpened} />
             </Card>
         </div>
     );

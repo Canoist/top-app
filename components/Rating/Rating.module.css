@@ -4,6 +4,23 @@
 
 .star svg {
     margin-left: 5px;
+    stroke: var(--gray);
+}
+
+.error svg {
+    stroke: var(--red);
+}
+
+.wrapper {
+    position: relative;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+
+    color: var(--red);
 }
 
 .star svg:focus {

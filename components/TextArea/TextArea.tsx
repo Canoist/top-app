@@ -4,23 +4,23 @@ import React, {
     DetailedHTMLProps,
     ForwardedRef,
     forwardRef,
-    HTMLAttributes,
+    TextareaHTMLAttributes,
 } from "react";
 import { FieldError } from "react-hook-form";
 
 interface ITextArea
     extends DetailedHTMLProps<
-        HTMLAttributes<HTMLTextAreaElement>,
+        TextareaHTMLAttributes<HTMLTextAreaElement>,
         HTMLTextAreaElement
     > {
     error?: FieldError;
 }
 
-export const TextArea: React.FC<ITextArea> = forwardRef(
+export const TextArea = forwardRef(
     (
-        { className, error, ...props },
+        { error, className, ...props }: ITextArea,
         ref: ForwardedRef<HTMLTextAreaElement>
-    ) => {
+    ): JSX.Element => {
         return (
             <div className={cn(styles.textareaWrapper, className)}>
                 <textarea
@@ -39,3 +39,5 @@ export const TextArea: React.FC<ITextArea> = forwardRef(
         );
     }
 );
+
+TextArea.displayName = "TextArea";

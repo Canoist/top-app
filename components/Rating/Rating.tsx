@@ -8,18 +8,21 @@ import React, {
 import styles from "./Rating.module.css";
 import cn from "classnames";
 import StarIcon from "./iconStar.svg";
+import { FieldError } from "react-hook-form";
 
 interface IRating
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     isEditable?: boolean;
     rating: number;
     setRating?: (rating: number) => void;
+    error?: FieldError;
 }
 
 export const Rating: React.FC<IRating> = ({
     isEditable = false,
     rating,
     setRating,
+    error,
     ...props
 }) => {
     const [currentRating, setCurrentRating] = useState<JSX.Element[]>(
@@ -79,10 +82,20 @@ export const Rating: React.FC<IRating> = ({
     };
 
     return (
-        <div {...props}>
+        <div
+            // ref={ref}
+            className={cn(styles.wrapper, {
+                [styles.error]: error,
+            })}
+            {...props}>
             {currentRating.map((item, index) => (
                 <span key={index}>{item}</span>
             ))}
+            {error && (
+                <span role="alert" className={styles.errorMessage}>
+                    {error.message}
+                </span>
+            )}
         </div>
     );
 };
