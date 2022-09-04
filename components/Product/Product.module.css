@@ -214,6 +214,7 @@
     }
 
     .rating {
+        margin-top: 15px;
         grid-area: rating;
     }
 
@@ -222,10 +223,12 @@
     }
 
     .creditTitle {
+        min-width: 101px;
         grid-area: creditTitle;
     }
 
     .rateTitle {
+        margin-bottom: 15px;
         grid-area: rateTitle;
     }
 
