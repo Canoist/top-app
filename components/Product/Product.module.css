@@ -340,4 +340,14 @@
             "hr2"
             "actions";
     }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reviewButton {
+        margin-top: 10px;
+        margin-left: 0;
+    }
 }
