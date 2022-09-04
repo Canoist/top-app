@@ -25,6 +25,7 @@ export interface IProduct {
     title: string;
     image: string;
     description: string;
+    disadvantages: string;
     link: string;
     price: number;
     credit: number;

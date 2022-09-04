@@ -3,6 +3,7 @@ import {
     Adventages,
     HhData,
     Htag,
+    Product,
     Sort,
     SortEnum,
     Tag,
@@ -45,7 +46,7 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
             <div>
                 {sortedProducts &&
                     sortedProducts.map((prod) => (
-                        <div key={prod._id}>{prod.title}</div>
+                        <Product product={prod} key={prod._id} />
                     ))}
             </div>
             <div className={styles.hhTitle}>
