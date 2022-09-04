@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
-import { Button, Htag, Paragraph, Rating, Tag } from "../components";
+import { Button, Htag, Input, Paragraph, Rating, Tag, TextArea } from "../components";
 import IMenuItem from "../interfaces/IMenuItem";
 import WithLayout from "../layouts/HOC/componentWithLayout";
 import topPageService from "../services/topPageService";
@@ -44,6 +44,8 @@ function Home(): JSX.Element {
             </Tag>
             <Rating rating={3} />
             <Rating rating={rating} setRating={setRating} isEditable />
+            <Input placeholder="text" />
+            <TextArea placeholder="another text" />
         </>
     );
 }
