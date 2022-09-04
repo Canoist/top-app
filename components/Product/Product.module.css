@@ -95,9 +95,15 @@
 .priceTitle,
 .creditTitle,
 .rateTitle {
+    padding-left: 3px;
+
     font-size: 14px;
     font-weight: 300;
     line-height: 19px;
+}
+
+.rateTitle {
+    padding-left: 5px;
 }
 
 .reviewButton {
@@ -142,13 +148,19 @@
 }
 
 .characteristicsName {
+    margin-right: 10px;
+
     font-weight: bold;
 }
 
 .characteristicsDots {
-    margin-bottom: 5px;
+    align-self: center;
 
     border-bottom: 1px dashed var(--gray-light);
+}
+
+.characteristicsValue {
+    margin-left: 10px;
 }
 
 .reviews {

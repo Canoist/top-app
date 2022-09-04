@@ -1,6 +1,8 @@
 import cn from "classnames";
+import Image from "next/image";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import { IProduct } from "../../interfaces/IProduct";
+import declOfNum from "../../utils/declOfNum";
 import priceRu from "../../utils/priceRu";
 import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
@@ -18,16 +20,20 @@ export const Product: React.FC<IProductProps> = ({
     className,
     ...props
 }) => {
+    console.log(process.env.NEXT_PUBLIC_IMAGE_DOMAIN, product.image);
+
     return (
         <div className={className} {...props}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
-                    {/* <Image
-						src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
-						alt={product.title}
-						width={70}
-						height={70}
-					/> */}
+                    <Image
+                        src={
+                            process.env.NEXT_PUBLIC_IMAGE_DOMAIN + product.image
+                        }
+                        alt={product.title}
+                        width={70}
+                        height={70}
+                    />
                 </div>
                 <div className={styles.title}>{product.title}</div>
                 <div className={styles.price}>
@@ -70,14 +76,17 @@ export const Product: React.FC<IProductProps> = ({
                     кредит
                 </div>
                 <div className={styles.rateTitle}>
-                    {/* <a href="#ref" onClick={scrollToReview}>
+                    <a
+                        href="#ref"
+                        // onClick={scrollToReview}
+                    >
                         {product.reviewCount}{" "}
                         {declOfNum(product.reviewCount, [
                             "отзыв",
                             "отзыва",
                             "отзывов",
                         ])}
-                    </a> */}
+                    </a>
                 </div>
                 {/* <Divider className={styles.hr} /> */}
                 <div className={styles.description}>{product.description}</div>
