@@ -1,6 +1,11 @@
-import cn from "classnames";
+// import cn from "classnames";
 import Image from "next/image";
-import React, { DetailedHTMLProps, HTMLAttributes, useState } from "react";
+import React, {
+    DetailedHTMLProps,
+    HTMLAttributes,
+    useRef,
+    useState,
+} from "react";
 import { IProduct } from "../../interfaces/IProduct";
 import declOfNum from "../../utils/declOfNum";
 import priceRu from "../../utils/priceRu";
@@ -23,6 +28,15 @@ export const Product: React.FC<IProductProps> = ({
     ...props
 }) => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+    const reviewRef = useRef<HTMLDivElement>(null);
+
+    const scrollToReview = () => {
+        setIsReviewOpened(true);
+        reviewRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
 
     return (
         <div className={className} {...props}>
@@ -78,10 +92,7 @@ export const Product: React.FC<IProductProps> = ({
                     кредит
                 </div>
                 <div className={styles.rateTitle}>
-                    <a
-                        href="#ref"
-                        // onClick={scrollToReview}
-                    >
+                    <a href="#ref" onClick={scrollToReview}>
                         {product.reviewCount}{" "}
                         {declOfNum(product.reviewCount, [
                             "отзыв",
@@ -135,7 +146,7 @@ export const Product: React.FC<IProductProps> = ({
             <Card
                 color="blue"
                 className={styles.reviews}
-                // ref={reviewRef}
+                ref={reviewRef}
                 tabIndex={isReviewOpened ? 0 : -1}>
                 {product.reviews.map((r) => (
                     <div key={r._id}>
