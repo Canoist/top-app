@@ -1,4 +1,4 @@
-// import cn from "classnames";
+import cn from "classnames";
 import Image from "next/image";
 import React, {
     DetailedHTMLProps,
@@ -11,6 +11,7 @@ import declOfNum from "../../utils/declOfNum";
 import priceRu from "../../utils/priceRu";
 import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
+import { Divider } from "../Divider/Divider";
 import { Rating } from "../Rating/Rating";
 import { Review } from "../Review/Review";
 import ReviewForm from "../ReviewForm/ReviewForm";
@@ -101,7 +102,7 @@ export const Product: React.FC<IProductProps> = ({
                         ])}
                     </a>
                 </div>
-                {/* <Divider className={styles.hr} /> */}
+                <Divider className={styles.hr} />
                 <div className={styles.description}>{product.description}</div>
                 <div className={styles.feature}>
                     {product.characteristics.map((c) => (
@@ -130,7 +131,7 @@ export const Product: React.FC<IProductProps> = ({
                         </div>
                     )}
                 </div>
-                {/* <Divider className={cn(styles.hr, styles.hr2)} /> */}
+                <Divider className={cn(styles.hr, styles.hr2)} />
                 <div className={styles.actions}>
                     <Button appearance="primary">Узнать подробнее</Button>
                     <Button
@@ -151,7 +152,7 @@ export const Product: React.FC<IProductProps> = ({
                 {product.reviews.map((r) => (
                     <div key={r._id}>
                         <Review review={r} />
-                        {/* <Divider /> */}
+                        <Divider />
                     </div>
                 ))}
                 <ReviewForm productId={product._id} isOpened={isReviewOpened} />

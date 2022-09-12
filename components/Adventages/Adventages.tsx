@@ -18,7 +18,7 @@ export const Adventages: React.FC<IAdventages> = ({ advantages }) => {
                     <div className={styles.title}>{item.title}</div>
                     <hr className={styles.vline} />
                     <div>{item.description}</div>
-                </div>
+                </div> 
             ))}
         </div>
     );
