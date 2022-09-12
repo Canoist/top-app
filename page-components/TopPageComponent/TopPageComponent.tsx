@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import {
     Adventages,
     HhData,
@@ -27,6 +27,10 @@ const TopPageComponents: React.FC<ITopPageComponents> = ({
         sortReducer,
         { products, sort: SortEnum.Rating }
     );
+
+    useEffect(() => {
+        dispatchSort({ type: "reset", initialState: products });
+    }, [products]);
 
     const handleSort = (sort: SortEnum) => {
         dispatchSort({ type: sort });
