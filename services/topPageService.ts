@@ -6,8 +6,6 @@ const topPageEndPoint = "/top-page/";
 
 const topPageService = {
     find: async (firstCategory: number) => {
-        console.log(topPageEndPoint + "find");
-
         const { data } = await httpService.post<IMenuItem[]>(
             topPageEndPoint + "find",
             { firstCategory }

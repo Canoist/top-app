@@ -6,10 +6,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <>
             <Head>
-                <title>My new title</title>
+                <title>Top app</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Component {...pageProps} /> 
+            <Component {...pageProps} />
         </>
     );
 }

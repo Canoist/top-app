@@ -13,13 +13,10 @@ interface IPayload extends IReviewForForm {
 
 const reviewService = {
     create: async (payload: IPayload) => {
-        console.log(payload);
-
         const { data } = await httpService.post<IReviewSentResponse>(
             reviewEndPoint,
             payload
         );
-        console.log(data);
 
         return data;
     },

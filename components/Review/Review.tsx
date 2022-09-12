@@ -19,8 +19,6 @@ export const Review: React.FC<IReviewProps> = ({
 }) => {
     const { name, title, description, createdAt, rating } = review;
 
-    console.log(review);
-
     return (
         <div className={cn(styles.review, className)} {...props}>
             <UserIcon className={styles.user} />
